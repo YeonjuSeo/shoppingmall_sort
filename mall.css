@@ -4,34 +4,53 @@ html {
 body {
   padding: 10px 25px;
 }
+img {
+  height: 45px;
+}
 .sort {
+  position: fixed;
+  top: 0px;
+  width: 90%;
   background-color: rgb(44, 44, 49);
   padding: 20px 0px;
   padding-bottom: 33px;
-  display: flex;
-  margin-bottom: 35px;
-  align-items: center;
-  justify-content: flex-end;
-  position: fixed;
-  top: 0px;
+}
+.logo {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.logo img {
+  height: 100px;
+}
+.sort__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
 }
 .sort__clothes {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 45%;
 }
 .sort__clothes img {
   margin: 0px 15px;
 }
 .sort__colors {
   display: flex;
-  width: 50%;
+  width: 45%;
+  padding-left: 30px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
 }
 .color {
-  padding: 7px;
-  margin: 0px 5px;
+  padding: 10px;
+  margin: 0px 8px;
 }
 .sort__colors :first-child {
   background-color: rgb(45, 134, 207);
@@ -42,11 +61,9 @@ body {
 .sort__colors :last-child {
   background-color: rgb(245, 94, 94);
 }
-img {
-  height: 35px;
-}
+
 .list {
-  margin-top: 75px;
+  margin-top: 185px;
 }
 .clothes {
   display: flex;
