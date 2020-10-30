@@ -67,18 +67,23 @@ body {
   background-color: var(--color-pink);
 }
 .items {
-  width: 60%;
-  height: 60%;
+  width: 85%;
+  height: 80%;
   list-style: none;
   padding-left: 0;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+.items::-webkit-scrollbar {
+  display: none;
 }
 .item {
   background-color: white;
   display: flex;
   align-items: center;
   padding: var(--base-space);
-  margin-bottom: var(--base-space);
+  margin-bottom: calc(var(--base-space) / 10);
+  border-radius: 10px;
 }
 .item__thumbnail {
   width: var(--size-thumbnail);
