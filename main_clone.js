@@ -9,13 +9,25 @@ function loadItems() {
       .then((json) => json.items)
   );
 }
-
+//Update the List with the given items
+function displayItems(items) {
+  const container = document.querySelector(".items");
+  container.innerHTML = items.map((item) => createHTMLString(item));
+}
+//Create HTML list item from the given data item
+function createHTMLString(item) {
+  return `
+  <li class="item">
+    <img src="${item.image}" alt="${item.type}" class="item__thumbnail" />
+    <span class="item__description">${item.gender}, ${item.size}</span>
+  </li>
+  `;
+}
 // main
 loadItems()
   //Promise
   .then((items) => {
-    console.log(items);
-    // displayItems(items); //Html에 보여주기
+    displayItems(items); //Html에 보여주기
     // setEventListeners(items); //for Filtering
   })
   .catch(console.log);
