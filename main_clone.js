@@ -23,11 +23,57 @@ function createHTMLString(item) {
   </li>
   `;
 }
+
+//필터링 된 아이템을 보여주는 첫번째 솔루션
+//이벤트를 처리하는 함수는 on+어떤 이벤트의 이름
+function onButtonClick(event, items) {
+  const dataset = event.target.dataset;
+  const key = dataset.key;
+  const value = dataset.value;
+
+  if (key == null || value == null) {
+    return;
+  }
+  //object는 key를 이용해서 데이터에 접근 가능
+
+  const filtered = items.filter((item) => item[key] === value);
+  displayItems(filtered);
+}
+// 매번 전체가 innerHTML로 업데이트 되어야하는 불필요한 과정이 있음
+
+//필터링 된 아이템을 보여주는 두번째 솔루션
+// function conButtonClick(event, items) {
+//   const target = event.target;
+//   const key = target.dataset.key;
+//   const value = target.dataset.value;
+//   if (key == null || value == null) {
+//     return;
+//   }
+//   updateItems(items, key, value);
+// }
+
+// function updateItems(items, key, value) {
+//   items.forEach((item) => {
+//     if (item.dataset[key] === value) {
+//       item.classList.remove("invisible");
+//     } else {
+//       item.classList.add("invisible");
+//     }
+//   });
+// }
+
+function setEventListeners(items) {
+  const logo = document.querySelector(".logo");
+  const buttons = document.querySelector(".buttons"); //이벤트 위임
+  logo.addEventListener("click", () => displayItems(items));
+  buttons.addEventListener("click", (event) => onButtonClick(event, items));
+}
+
 // main
 loadItems()
   //Promise
   .then((items) => {
-    displayItems(items); //Html에 보여주기
-    // setEventListeners(items); //for Filtering
+    displayItems(items); //HTML에 보여주기
+    setEventListeners(items); //for Filtering
   })
   .catch(console.log);
