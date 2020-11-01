@@ -24,6 +24,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 .logo {
   cursor: pointer;
