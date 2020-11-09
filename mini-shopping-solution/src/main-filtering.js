@@ -32,15 +32,20 @@ function onButtonClick(event, items) {
   if (key == null || value == null) {
     return;
   }
+  console.log(key, value);
   updateItems(items, key, value);
 }
 
 // Make the items matching {key: value} invisible.
 function updateItems(items, key, value) {
   items.forEach((item) => {
+    // console.log(Object.assign(item));
+    console.log(item, key, value, item[key], value);
     if (item.dataset[key] === value) {
+      console.log("make visible");
       item.classList.remove("invisible");
     } else {
+      console.log("make invisible");
       item.classList.add("invisible");
     }
   });
