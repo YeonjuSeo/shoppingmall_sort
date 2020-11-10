@@ -32,21 +32,24 @@ function onButtonClick(event, items) {
   if (key == null || value == null) {
     return;
   }
-  console.log(key, value);
+  // console.log(key, value);
   updateItems(items, key, value);
 }
 
 // Make the items matching {key: value} invisible.
 function updateItems(items, key, value) {
+  console.log(items);
   items.forEach((item) => {
-    // console.log(Object.assign(item));
     console.log(item, key, value, item[key], value);
-    if (item.dataset[key] === value) {
+    if (item[key] === value) {
+      console.log(Object.assign(item));
       console.log("make visible");
-      item.classList.remove("invisible");
+      item.classList.add("visible");
+      // item.classList.remove("invisible");
     } else {
       console.log("make invisible");
-      item.classList.add("invisible");
+      // item.classList.add("invisible");
+      item.classList.remove("visible");
     }
   });
 }
