@@ -15,17 +15,19 @@ function displayItems(items) {
 function createHTMLString(item) {
   return `
     <li class="item">
-        <img src="mini-shopping-solution/${item.image}" alt="${item.type}" class="item__thumbnail" />
+        <img src="${item.image}" alt="${item.type}" class="item__thumbnail" />
         <span class="item__description">${item.gender}, ${item.size}</span>
     </li>
     `;
 }
 
 function onButtonClick(event, items) {
+  console.log(items);
   const dataset = event.target.dataset;
+  console.log(event.target);
   const key = dataset.key;
   const value = dataset.value;
-
+  console.log(`key = ${key} value = ${value}`);
   if (key == null || value == null) {
     return;
   }
