@@ -38,19 +38,16 @@ function onButtonClick(event, items) {
 
 // Make the items matching {key: value} invisible.
 function updateItems(items, key, value) {
-  console.log(items);
+  const li = document.querySelectorAll("li");
+  let idx = 0;
+  console.log(li);
   items.forEach((item) => {
-    console.log(item, key, value, item[key], value);
     if (item[key] === value) {
-      console.log(Object.assign(item));
-      console.log("make visible");
-      item.classList.add("visible");
-      // item.classList.remove("invisible");
+      li[idx].classList.remove("invisible");
     } else {
-      console.log("make invisible");
-      // item.classList.add("invisible");
-      item.classList.remove("visible");
+      li[idx].classList.add("invisible");
     }
+    idx++;
   });
 }
 
