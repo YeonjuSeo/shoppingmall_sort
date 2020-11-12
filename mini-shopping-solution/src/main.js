@@ -17,22 +17,27 @@ function createHTMLString(item) {
     <li class="item">
         <img src="${item.image}" alt="${item.type}" class="item__thumbnail" />
         <span class="item__description">${item.gender}, ${item.size}</span>
-    </li>
+        </li>
     `;
 }
 
 function onButtonClick(event, items) {
   console.log(items);
   const dataset = event.target.dataset;
-  console.log(event.target);
+  // console.log(event.target);
   const key = dataset.key;
   const value = dataset.value;
-  console.log(`key = ${key} value = ${value}`);
+  // console.log(`key = ${key} value = ${value}`);
   if (key == null || value == null) {
     return;
   }
 
-  displayItems(items.filter((item) => item[key] === value));
+  displayItems(
+    items.filter(function (item) {
+      // console.log(item);
+      return item[key] === value;
+    })
+  );
 }
 
 function setEventListeners(items) {
