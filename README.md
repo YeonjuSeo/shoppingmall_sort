@@ -13,21 +13,41 @@
 ### 1. 데이터를 동적으로 작성
 
 ```JavaScript
-function createHTMLString(item) {
-  return `
-  <li class="item">
-    <img src="${item.image}" alt="${item.type}" class="item__thumbnail" />
-    <span class="item__description">${item.gender}, ${item.size}</span>
-  </li>
-  `;
+function createElement(item) {
+  const img = document.createElement("img");
+  img.setAttribute("class", "thumbnail");
+  img.setAttribute("src", item.image);
+
+  const span = document.createElement("span");
+  span.setAttribute("class", "description");
+  span.innerText = `${item.gender}, ${item.size} size`;
+  const li = document.createElement("li");
+  li.setAttribute("class", "item");
+  li.setAttribute("data-type", item.type);
+  li.setAttribute("data-color", item.color);
+  li.append(img);
+  li.append(span);
+
+  return li;
 }
 ```
 
 ### 2. 버튼을 누르면 아이템을 필터링
 
 ```JavaScript
-const filtered = items.filter((item) => item[key] === value);
-  displayItems(filtered);
+function updateItems(items, key, value) {
+  const li = document.querySelectorAll("li");
+  let idx = 0;
+  console.log(li);
+  items.forEach((item) => {
+    if (item[key] === value) {
+      li[idx].classList.remove("invisible");
+    } else {
+      li[idx].classList.add("invisible");
+    }
+    idx++;
+  });
+}
 ```
 
 ### 3. 로고 클릭시 전체 아이템 보여주기
