@@ -32,7 +32,6 @@ function onButtonClick(event, items) {
   if (key == null || value == null) {
     return;
   }
-  // console.log(key, value);
   updateItems(items, key, value);
 }
 
